@@ -11,6 +11,26 @@
         .error {
             color: #FF0000;
         }
+
+        #tableinput {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #tableinput td,
+        #tableinput th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #tableinput th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
     </style>
 
 </head>
@@ -27,13 +47,14 @@
             $nama = test_input($_POST["nama"]);
         }
         if (empty($_POST["email"])) {
+
             $emailErr = "Email harus diisi";
-        } else {
+        } elseif (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+
             $email = test_input($_POST["email"]);
-            // check if e-mail address is well-formed
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $emailErr = "Email tidak sesuai format";
-            }
+        } else {
+
+            $emailErr = "Email tidak sesuai format";
         }
         if (empty($_POST["website"])) {
             $website = "";
@@ -88,18 +109,25 @@
             </table>
         </form>
     </section>
-    <?php
-    echo "<h2>Data yang anda isi:</h2>";
-    echo $nama;
-    echo "<br>";
-    echo $email;
-    echo "<br>";
-    echo $website;
-    echo "<br>";
-    echo $comment;
-    echo "<br>";
-    echo $gender;
-    ?>
+    <section id="tableinput">
+        <h2>Data yang anda isi:</h2>
+        <table>
+            <tr>
+                <th>Nama</th>
+                <th>E-Mail</th>
+                <th>Website</th>
+                <th>Komentar</th>
+                <th>Gender</th>
+            </tr>
+            <tr>
+                <td> <?php echo $nama; ?> </td>
+                <td> <?php echo $email; ?> </td>
+                <td> <?php echo $website; ?> </td>
+                <td> <?php echo $comment; ?> </td>
+                <td> <?php echo $gender; ?> </td>
+            </tr>
+        </table>
+    </section>
 </body>
 
 </html>
