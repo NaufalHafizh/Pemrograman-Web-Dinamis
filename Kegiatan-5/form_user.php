@@ -34,7 +34,7 @@
         </table>
     </form>
     <div>
-        <p>alredy have account ? <a href="form_login.php">LOGIN</a></p>
+        <p>already have account ? <a href="form_login.php">LOGIN</a></p>
     </div>
 </body>
 

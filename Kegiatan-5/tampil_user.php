@@ -58,7 +58,7 @@ $sql = "select * from users order by id_user";
                     <td><?= $r['id_user']; ?></td>
                     <td><?= $r['nama_lengkap']; ?></td>
                     <td><?= $r['email']; ?></td>
-                    <td><a href='hapus_user.php?id=$r[id_user]'>Hapus</a></td>
+                    <td><a href="hapus_user.php?id_user=<?= $r['id_user']; ?>">Hapus</a></td>
                 </tr>
 
         <?php

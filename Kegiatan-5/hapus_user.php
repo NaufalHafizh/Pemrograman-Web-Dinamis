@@ -1,8 +1,10 @@
 
 <?php
 include "koneksi.php";
-$sql = "delete from users where id_user= '$_GET[id]'";
-mysqli_query($con, $sql);
-mysqli_close($conn);
-header('location:tampil_user.php');
+
+$id_user = $_GET['id_user'];
+
+$sql_delete = mysqli_query($con, "DELETE FROM users WHERE id_user = '$id_user'");
+
+header("Location: tampil_user.php");
 ?>
