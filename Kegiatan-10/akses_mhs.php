@@ -1,5 +1,5 @@
 <?php
-$url = "http://localhost/pwd/getdatamhs.php";
+$url = "http://localhost/Kegiatan-10/getdatamhs.php";
 $client = curl_init($url);
 curl_setopt($client, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($client);
